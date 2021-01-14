@@ -1,21 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { createAppContainer } from "react-navigation";
+import { createDrawerNavigator } from "react-navigation-drawer";
+import Temperature from './app/components/Temp'
+import Distance from './app/components/Distance'
+import Num from './app/components/Number'
+import Time from './app/components/Tme'
+import Currency from './app/components/Currency'
+import Home from './app/components/Home'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const SideNav = createDrawerNavigator({
+  Home:{
+    screen:Home,
   },
-});
+  Temperature:{
+    screen:Temperature,
+  },
+  Number:{
+    screen:Num,
+  },
+  Distance:{
+    screen:Distance,
+  },
+  Time:{
+    screen:Time,
+  },
+  Currency:{
+    screen:Currency,
+  },
+})
+
+export default createAppContainer(SideNav)
